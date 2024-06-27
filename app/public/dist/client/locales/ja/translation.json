@@ -348,14 +348,16 @@
     "MAGNET_BOMB": "マグネットボム",
     "MUDDY_WATER": "だくりゅう",
     "ANCIENT_POWER": "げんしのちから",
-    "MOON_DREAM": "つきのゆめ"
+    "MOON_DREAM": "つきのゆめ",
+    "STONE_AXE": "がんせきアックス",
+    "CAMERA_FLASH": "カメラフラッシュ"
   },
   "pkm": {
-    "DEFAULT": "MissingNo.",
-    "EGG": "卵",
-    "DITTO": "同上",
+    "DEFAULT": "けつばん",
+    "EGG": "たまご",
+    "DITTO": "メタモン",
     "BULBASAUR": "フシギダネ",
-    "IVYSAUR": "アイビーサウルス",
+    "IVYSAUR": "フシギソウ",
     "VENUSAUR": "フシギバナ",
     "CHARMANDER": "ヒトカゲ",
     "CHARMELEON": "シャルメレオン",
