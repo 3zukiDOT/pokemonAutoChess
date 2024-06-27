@@ -306,7 +306,17 @@
     "AROMATHERAPY": "アロマセラピー",
     "DETECT": "みきり",
     "SPACIAL_REND": "あくうせつだん",
-    "MULTI_ATTACK": "マルチアタック"
+    "MULTI_ATTACK": "マルチアタック",
+    "ACCELEROCK": "アクセルロック",
+    "PETAL_BLIZZARD": "はなふぶき",
+    "SUNSTEEL_STRIKE": "メテオドライブ",
+    "MOONGEIST_BEAM": "シャドーレイ",
+    "FLEUR_CANNON": "フルールカノン",
+    "SPIRIT_BREAK": "ソウルクラッシュ",
+    "SHEER_COLD": "ぜったいれいど",
+    "EXTREME_SPEED": "しんそく",
+    "ZAP_CANNON": "でんじほう",
+    "PSYCHO_BOOST": "サイコブースト"
   },
   "pkm": {
     "DEFAULT": "MissingNo.",
