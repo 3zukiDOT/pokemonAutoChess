@@ -9,7 +9,7 @@
     "LEGENDARY": "レジェンダリー",
     "MYTHICAL": "ミシック",
     "HATCH": "ハッチ",
-    "SPECIAL": "特別"
+    "SPECIAL": "スペシャル"
   },
   "damage": {
     "SPECIAL": "特殊ダメージ",
@@ -266,6 +266,15 @@
     "AIR_SLASH": "エアスラッシュ",
     "EGGSPLOSION": "たまなげ",
     "BODY_SLAM": "のしかかり",
+    "FLORAL_HEALING": "フラワーヒール",
+    "VINE_WHIP": "つるのムチ",
+    "BARB_BARRAGE": "どくばりセンボン",
+    "INFERNAL_PARADE": "ひゃっきやこう",
+    "MAGIC_POWDER": "まほうのこな",
+    "RETALIATE": "かたきうち",
+    "SLASH": "きりさく",
+    "OUTRAGE": "げきりん",
+    "LUNGE": "とびかかる",
     "AURASPHERE": "はどうだん"
   },
   "pkm": {
