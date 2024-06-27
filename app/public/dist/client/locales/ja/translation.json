@@ -316,7 +316,18 @@
     "SHEER_COLD": "ぜったいれいど",
     "EXTREME_SPEED": "しんそく",
     "ZAP_CANNON": "でんじほう",
-    "PSYCHO_BOOST": "サイコブースト"
+    "PSYCHO_BOOST": "サイコブースト",
+    "ICE_HAMMER": "アイスハンマー",
+    "POLLEN_PUFF": "かふんだんご",
+    "PSYSTRIKE": "サイコブレイク",
+    "FACADE": "からげんき",
+    "DREAM_EATER": "ゆめくい",
+    "SPARK": "スパーク",
+    "CRUNCH": "かみくだく",
+    "CROSS_POISON": "クロスポイズン",
+    "DOUBLE_EDGE": "すてみタックル",
+    "FIRE_FANG": "ほのおのキバ",
+    "ICE_FANG": "こおりのキバ"
   },
   "pkm": {
     "DEFAULT": "MissingNo.",
