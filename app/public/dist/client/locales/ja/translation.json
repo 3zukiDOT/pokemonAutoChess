@@ -275,7 +275,22 @@
     "SLASH": "きりさく",
     "OUTRAGE": "げきりん",
     "LUNGE": "とびかかる",
-    "AURASPHERE": "はどうだん"
+    "KNOCK_OFF": "はたきおとす",
+    "FISHIOUS_REND": "エラがみ",
+    "RECOVER": "じこさいせい",
+    "CURSE": "のろい",
+    "DOOM_DESIRE": "はめつのねがい",
+    "TIME_TRAVEL": "ときわたり",
+    "POLTERGEIST": "ポルターガイスト",
+    "GOLD_RUSH": "いっかくせんきん",
+    "MAKE_IT_RAIN": "ゴールドラッシュ",
+    "CRUSH_GRIP": "にぎりつぶす",
+    "AURASPHERE": "はどうだん",
+    "SKETCH": "スケッチ",
+    "OVERDRIVE": "オーバードライブ",
+    "LOVELY_KISS": "あくまのキッス",
+    "TRANSFORM": "へんしん",
+    "PSYCHIC_FANGS": "サイコファング"
   },
   "pkm": {
     "DEFAULT": "MissingNo.",
