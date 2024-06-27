@@ -344,7 +344,11 @@
     "BLOOD_MOON": "ブラッドムーン",
     "TEA_TIME": "おちゃかい",
     "SPIKES": "まきびし",
-    "SHADOW_PUNCH": "シャドーパンチ"
+    "SHADOW_PUNCH": "シャドーパンチ",
+    "MAGNET_BOMB": "マグネットボム",
+    "MUDDY_WATER": "だくりゅう",
+    "ANCIENT_POWER": "げんしのちから",
+    "MOON_DREAM": "つきのゆめ"
   },
   "pkm": {
     "DEFAULT": "MissingNo.",
