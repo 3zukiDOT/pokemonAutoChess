@@ -166,7 +166,6 @@ export enum Pkm {
   MEGA_STEELIX = "MEGA_STEELIX",
   SCYTHER = "SCYTHER",
   SCIZOR = "SCIZOR",
-  MEGA_SCIZOR = "MEGA_SCIZOR",
   KLEAVOR = "KLEAVOR",
   RIOLU = "RIOLU",
   LUCARIO = "LUCARIO",
@@ -205,7 +204,6 @@ export enum Pkm {
   SYLVEON = "SYLVEON",
   MEDITITE = "MEDITITE",
   MEDICHAM = "MEDICHAM",
-  MEGA_MEDICHAM = "MEGA_MEDICHAM",
   NUMEL = "NUMEL",
   CAMERUPT = "CAMERUPT",
   MEGA_CAMERUPT = "MEGA_CAMERUPT",
@@ -570,7 +568,6 @@ export enum Pkm {
   SILVALLY_FLYING = "SILVALLY_FLYING",
   SILVALLY_ROCK = "SILVALLY_ROCK",
   SILVALLY_GROUND = "SILVALLY_GROUND",
-  SILVALLY_FLORA = "SILVALLY_FLORA",
   SILVALLY_GHOST = "SILVALLY_GHOST",
   TYPE_NULL = "TYPE_NULL",
   ZERAORA = "ZERAORA",
@@ -976,7 +973,6 @@ export const PkmIndex: { [key in Pkm]: string } = {
   [Pkm.MEGA_STEELIX]: "0208-0001",
   [Pkm.SCYTHER]: "0123",
   [Pkm.SCIZOR]: "0212",
-  [Pkm.MEGA_SCIZOR]: "0212-0001",
   [Pkm.KLEAVOR]: "0900",
   [Pkm.RIOLU]: "0447",
   [Pkm.LUCARIO]: "0448",
@@ -1015,7 +1011,6 @@ export const PkmIndex: { [key in Pkm]: string } = {
   [Pkm.SYLVEON]: "0700",
   [Pkm.MEDITITE]: "0307",
   [Pkm.MEDICHAM]: "0308",
-  [Pkm.MEGA_MEDICHAM]: "0308-0001",
   [Pkm.NUMEL]: "0322",
   [Pkm.CAMERUPT]: "0323",
   [Pkm.MEGA_CAMERUPT]: "0323-0001",
@@ -1535,14 +1530,13 @@ export const PkmIndex: { [key in Pkm]: string } = {
   [Pkm.SILVALLY_GRASS]: "0773-0011",
   [Pkm.SILVALLY_ICE]: "0773-0014",
   [Pkm.SILVALLY_FIGHTING]: "0773-0001",
-  [Pkm.SILVALLY_LIGHT]: "0773",
+  [Pkm.SILVALLY_LIGHT]: "0773-0006",
   [Pkm.SILVALLY_POISON]: "0773-0003",
-  [Pkm.SILVALLY_SOUND]: "0773-0007",
+  [Pkm.SILVALLY_SOUND]: "0773",
   [Pkm.SILVALLY_STEEL]: "0773-0008",
   [Pkm.SILVALLY_FLYING]: "0773-0002",
   [Pkm.SILVALLY_ROCK]: "0773-0005",
   [Pkm.SILVALLY_GROUND]: "0773-0004",
-  [Pkm.SILVALLY_FLORA]: "0773-0006",
   [Pkm.SILVALLY_GHOST]: "0773-0007",
   [Pkm.DEWPIDER]: "0751",
   [Pkm.ARAQUANID]: "0752",
@@ -1780,7 +1774,6 @@ export const PkmFamily: { [key in Pkm]: Pkm } = {
   [Pkm.MEGA_STEELIX]: Pkm.ONIX,
   [Pkm.SCYTHER]: Pkm.SCYTHER,
   [Pkm.SCIZOR]: Pkm.SCYTHER,
-  [Pkm.MEGA_SCIZOR]: Pkm.SCYTHER,
   [Pkm.KLEAVOR]: Pkm.KLEAVOR,
   [Pkm.RIOLU]: Pkm.RIOLU,
   [Pkm.LUCARIO]: Pkm.RIOLU,
@@ -1795,7 +1788,6 @@ export const PkmFamily: { [key in Pkm]: Pkm } = {
   [Pkm.GLACEON]: Pkm.GLACEON,
   [Pkm.MEDITITE]: Pkm.MEDITITE,
   [Pkm.MEDICHAM]: Pkm.MEDITITE,
-  [Pkm.MEGA_MEDICHAM]: Pkm.MEDITITE,
   [Pkm.NUMEL]: Pkm.NUMEL,
   [Pkm.CAMERUPT]: Pkm.NUMEL,
   [Pkm.MEGA_CAMERUPT]: Pkm.NUMEL,
@@ -2349,7 +2341,6 @@ export const PkmFamily: { [key in Pkm]: Pkm } = {
   [Pkm.SILVALLY_FLYING]: Pkm.TYPE_NULL,
   [Pkm.SILVALLY_ROCK]: Pkm.TYPE_NULL,
   [Pkm.SILVALLY_GROUND]: Pkm.TYPE_NULL,
-  [Pkm.SILVALLY_FLORA]: Pkm.TYPE_NULL,
   [Pkm.SILVALLY_GHOST]: Pkm.TYPE_NULL,
   [Pkm.DEWPIDER]: Pkm.DEWPIDER,
   [Pkm.ARAQUANID]: Pkm.DEWPIDER,
@@ -2741,17 +2732,17 @@ export const AnimationConfig: {
   [Pkm.PIDGEY]: {
     attack: AnimationType.Shoot,
     ability: AnimationType.FlapAround,
-    emote: AnimationType.Attack
+    emote: AnimationType.Shoot
   },
   [Pkm.PIDGEOTTO]: {
     attack: AnimationType.Shoot,
     ability: AnimationType.FlapAround,
-    emote: AnimationType.Attack
+    emote: AnimationType.Shoot
   },
   [Pkm.PIDGEOT]: {
     attack: AnimationType.Shoot,
     ability: AnimationType.FlapAround,
-    emote: AnimationType.Attack
+    emote: AnimationType.Shoot
   },
   [Pkm.HOPPIP]: {
     attack: AnimationType.Shoot,
@@ -3379,11 +3370,6 @@ export const AnimationConfig: {
     ability: AnimationType.MultiScratch,
     emote: AnimationType.Shoot
   },
-  [Pkm.MEGA_SCIZOR]: {
-    attack: AnimationType.Attack,
-    ability: AnimationType.Attack,
-    emote: AnimationType.Shoot
-  },
   [Pkm.KLEAVOR]: {
     attack: AnimationType.Attack,
     ability: AnimationType.Attack,
@@ -3532,7 +3518,8 @@ export const AnimationConfig: {
   [Pkm.VAPOREON]: {
     attack: AnimationType.Shoot,
     ability: AnimationType.RearUp,
-    emote: AnimationType.Shoot
+    emote: AnimationType.Shoot,
+    shinyUnavailable: true
   },
   [Pkm.JOLTEON]: {
     attack: AnimationType.Shock,
@@ -3572,11 +3559,6 @@ export const AnimationConfig: {
   [Pkm.MEDICHAM]: {
     attack: AnimationType.Charge,
     ability: AnimationType.SpAttack,
-    emote: AnimationType.Shoot
-  },
-  [Pkm.MEGA_MEDICHAM]: {
-    attack: AnimationType.Attack,
-    ability: AnimationType.Attack,
     emote: AnimationType.Shoot
   },
   [Pkm.NUMEL]: {
@@ -3930,8 +3912,7 @@ export const AnimationConfig: {
   [Pkm.KROOKODILE]: {
     attack: AnimationType.Attack,
     ability: AnimationType.Attack,
-    emote: AnimationType.Shoot,
-    shinyUnavailable: true
+    emote: AnimationType.Shoot
   },
   [Pkm.SOLOSIS]: {
     attack: AnimationType.Attack,
@@ -4070,8 +4051,9 @@ export const AnimationConfig: {
   },
   [Pkm.TYRUNT]: {
     attack: AnimationType.Attack,
-    ability: AnimationType.Attack,
-    emote: AnimationType.Shoot
+    ability: AnimationType.Bite,
+    emote: AnimationType.RearUp,
+    shinyUnavailable: true
   },
   [Pkm.TYRANTRUM]: {
     attack: AnimationType.Attack,
@@ -4136,8 +4118,7 @@ export const AnimationConfig: {
   [Pkm.SCOLIPEDE]: {
     attack: AnimationType.Attack,
     ability: AnimationType.Attack,
-    emote: AnimationType.Shoot,
-    shinyUnavailable: true
+    emote: AnimationType.Shoot
   },
   [Pkm.PORYGON]: {
     attack: AnimationType.RearUp,
@@ -5154,7 +5135,8 @@ export const AnimationConfig: {
   [Pkm.FROGADIER]: {
     attack: AnimationType.Attack,
     ability: AnimationType.Attack,
-    emote: AnimationType.Shoot
+    emote: AnimationType.Shoot,
+    shinyUnavailable: true
   },
   [Pkm.GRENINJA]: {
     attack: AnimationType.Attack,
@@ -5289,7 +5271,8 @@ export const AnimationConfig: {
   [Pkm.MELMETAL]: {
     attack: AnimationType.Attack,
     ability: AnimationType.Attack,
-    emote: AnimationType.Shoot
+    emote: AnimationType.Shoot,
+    shinyUnavailable: true
   },
   [Pkm.HOOPA]: {
     attack: AnimationType.Attack,
@@ -6244,11 +6227,6 @@ export const AnimationConfig: {
     ability: AnimationType.Shoot,
     emote: AnimationType.Shoot
   },
-  [Pkm.SILVALLY_FLORA]: {
-    attack: AnimationType.Strike,
-    ability: AnimationType.Shoot,
-    emote: AnimationType.Shoot
-  },
   [Pkm.SILVALLY_GHOST]: {
     attack: AnimationType.Strike,
     ability: AnimationType.Shoot,
@@ -6307,8 +6285,7 @@ export const AnimationConfig: {
   [Pkm.LUNALA]: {
     attack: AnimationType.Shoot,
     ability: AnimationType.Charge,
-    emote: AnimationType.Shoot,
-    shinyUnavailable: true
+    emote: AnimationType.Shoot
   },
   [Pkm.MAGEARNA]: {
     attack: AnimationType.Shoot,
@@ -6398,14 +6375,12 @@ export const AnimationConfig: {
   [Pkm.WATTREL]: {
     attack: AnimationType.Attack,
     ability: AnimationType.Shoot,
-    emote: AnimationType.FlapAround,
-    shinyUnavailable: true
+    emote: AnimationType.FlapAround
   },
   [Pkm.KILOWATTREL]: {
     attack: AnimationType.Attack,
     ability: AnimationType.Shoot,
-    emote: AnimationType.FlapAround,
-    shinyUnavailable: true
+    emote: AnimationType.FlapAround
   },
   [Pkm.STANTLER]: {
     attack: AnimationType.Attack,
@@ -6548,7 +6523,8 @@ export const AnimationConfig: {
   [Pkm.TRUBBISH]: {
     attack: AnimationType.Attack,
     ability: AnimationType.Charge,
-    emote: AnimationType.Pose
+    emote: AnimationType.Pose,
+    shinyUnavailable: true
   },
   [Pkm.GARBODOR]: {
     attack: AnimationType.Attack,

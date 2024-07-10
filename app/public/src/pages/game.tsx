@@ -23,7 +23,6 @@ import {
 } from "../../../types"
 import { RequiredStageLevelForXpElligibility } from "../../../types/Config"
 import { Pkm } from "../../../types/enum/Pokemon"
-import { getRankLabel } from "../../../types/strings/Strings"
 import { logger } from "../../../utils/logger"
 import { addWanderingPokemon } from "../game/components/pokemon"
 import GameContainer from "../game/game-container"
@@ -64,14 +63,12 @@ import {
   setOpponentName,
   setOpponentTitle,
   setPhase,
-  setPlayer,
   setPlayerExperienceManager,
   setPokemonCollection,
   setPokemonProposition,
   setRoundTime,
   setShop,
   setShopLocked,
-  setSimulation,
   setStageLevel,
   setStreak,
   setSynergies,
@@ -93,6 +90,7 @@ import { LocalStoreKeys, localStore } from "./utils/store"
 import { FIREBASE_CONFIG } from "./utils/utils"
 import { DungeonDetails } from "../../../types/enum/Dungeon"
 import { playMusic, preloadMusic } from "./utils/audio"
+import store from "../stores"
 
 let gameContainer: GameContainer
 
@@ -183,18 +181,7 @@ export default function Game() {
   )
 
   function playerClick(id: string) {
-    gameContainer.onPlayerClick(id)
-
-    if (room?.state?.players) {
-      const player = room?.state?.players.get(id)
-      if (player) {
-        dispatch(setPlayer(player))
-        const simulation = room?.state?.simulations.get(player.simulationId)
-        if (simulation) {
-          dispatch(setSimulation(simulation))
-        }
-      }
-    }
+    room?.send(Transfer.SPECTATE, id)
   }
 
   const leave = useCallback(async () => {
@@ -432,7 +419,6 @@ export default function Game() {
 
       room.state.simulations.onAdd((simulation) => {
         gameContainer.initializeSimulation(simulation)
-        dispatch(setSimulation(simulation))
 
         simulation.listen("weather", (value) => {
           dispatch(setWeather({ id: simulation.id, value: value }))
@@ -553,7 +539,6 @@ export default function Game() {
           dispatch(setStreak(player.streak))
           dispatch(setShopLocked(player.shopLocked))
           dispatch(setPokemonCollection(player.pokemonCollection))
-          dispatch(setPlayer(player))
 
           player.listen("interest", (value) => {
             dispatch(setInterest(value))
@@ -625,7 +610,7 @@ export default function Game() {
           dispatch(setLoadingProgress({ id: player.id, value: value }))
         })
         player.listen("map", (newMap) => {
-          if (player.id === uid) {
+          if (player.id === store.getState().game.currentPlayerId) {
             const gameScene = getGameScene()
             if (gameScene) {
               gameScene.setMap(newMap)
@@ -643,6 +628,25 @@ export default function Game() {
             }
           }
           dispatch(changePlayer({ id: player.id, field: "map", value: newMap }))
+        })
+
+        player.listen("spectatedPlayerId", (spectatedPlayerId) => {
+          if (room?.state?.players) {
+            const spectatedPlayer = room?.state?.players.get(spectatedPlayerId)
+            const gameContainer = getGameContainer()
+            if (spectatedPlayer && player.id === uid) {
+              gameContainer.setPlayer(spectatedPlayer)
+
+              const simulation = room.state.simulations.get(
+                spectatedPlayer.simulationId
+              )
+              if (simulation) {
+                gameContainer.setSimulation(simulation)
+              }
+            }
+
+            gameContainer.gameScene?.board?.updateScoutingAvatars()
+          }
         })
 
         const fields: NonFunctionPropNames<IPlayer>[] = [

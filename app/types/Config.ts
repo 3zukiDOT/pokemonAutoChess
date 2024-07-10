@@ -107,7 +107,7 @@ export const SynergyTriggers: { [key in Synergy]: number[] } = {
   [Synergy.BABY]: [3, 5, 7],
   [Synergy.LIGHT]: [2, 3, 4, 5],
   [Synergy.WILD]: [2, 4, 6, 9],
-  [Synergy.AMORPHOUS]: [2, 4, 6]
+  [Synergy.AMORPHOUS]: [3, 5, 7]
 }
 
 export const RequiredStageLevelForXpElligibility = 10
@@ -324,8 +324,8 @@ export const FishRarityProbability: {
     [Rarity.EPIC]: 0
   },
   [Item.SUPER_ROD]: {
-    [Rarity.SPECIAL]: 0,
-    [Rarity.COMMON]: 0.35,
+    [Rarity.SPECIAL]: 0.1,
+    [Rarity.COMMON]: 0.25,
     [Rarity.UNCOMMON]: 0.3,
     [Rarity.RARE]: 0.25,
     [Rarity.EPIC]: 0.1
@@ -592,7 +592,7 @@ export const ItemStats: Record<Item, { [stat in Stat]?: number }> = {
   [Item.WIDE_LENS]: { [Stat.CRIT_CHANCE]: 10, [Stat.SPE_DEF]: 2 },
   [Item.RAZOR_CLAW]: { [Stat.CRIT_CHANCE]: 50, [Stat.ATK]: 3 },
   [Item.FLUFFY_TAIL]: { [Stat.CRIT_CHANCE]: 10, [Stat.DEF]: 2 },
-  [Item.KINGS_ROCK]: { [Stat.SHIELD]: 150 },
+  [Item.KINGS_ROCK]: { [Stat.SHIELD]: 100 },
   [Item.SHINY_CHARM]: { [Stat.SHIELD]: 15, [Stat.SPE_DEF]: 2 },
   [Item.SOOTHE_BELL]: { [Stat.SHIELD]: 15, [Stat.ATK]: 3 },
   [Item.FLAME_ORB]: { [Stat.SHIELD]: 15, [Stat.DEF]: 2 },
@@ -704,7 +704,7 @@ export const DTEF_TILESET_TILE_WIDTH = 24
 
 export const SCRIBBLE_LOBBY_CRON = "0 0 0-20/4 * * *" // every four hours from 00h to 20h
 export const GREATBALL_RANKED_LOBBY_CRON = "0 0 2,6,14,18 * * *" // every four hours from 2h to 22h
-export const ULTRABALL_RANKED_LOBBY_CRON = "0 0 10,22 * * *" // every four hours from 2h to 22h
+export const ULTRABALL_RANKED_LOBBY_CRON = "0 0 22 * * *" // every day 22h
 
 export const DUST_PER_BOOSTER = 50
 export const DUST_PER_SHINY = 250

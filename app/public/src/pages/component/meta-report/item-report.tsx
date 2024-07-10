@@ -9,7 +9,9 @@ import {
   ArtificialItems,
   ItemComponents,
   Berries,
-  CraftableItems
+  CraftableItems,
+  WeatherRocks,
+  ShinyItems
 } from "../../../../../types/enum/Item"
 import ItemStatistic from "./item-statistic"
 
@@ -39,8 +41,8 @@ export function ItemReport() {
       key: "artificial_items",
       items: ArtificialItems
     },
-    { label: t("components"), key: "components", items: ItemComponents },
-    { label: t("berries"), key: "berries", items: Berries }
+    { label: t("weather_rocks"), key: "weather_rocks", items: WeatherRocks },
+    { label: t("shiny_items"), key: "shiny_items", items: ShinyItems }
   ]
 
   return (

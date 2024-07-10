@@ -475,6 +475,10 @@ export default class Simulation extends Schema implements ISimulation {
       pokemon.status.triggerRuneProtect(60000)
     }
 
+    if (item === Item.KINGS_ROCK) {
+      pokemon.addShield(0.3 * pokemon.hp, pokemon, 0, false)
+    }
+
     if (item === Item.DYNAMAX_BAND) {
       pokemon.addMaxHP(3 * pokemon.hp)
     }
@@ -633,32 +637,32 @@ export default class Simulation extends Schema implements ISimulation {
             pickWild(Rarity.UNCOMMON, 1)
           } else if (this.stageLevel <= 10) {
             pickWild(Rarity.COMMON, 2)
-            pickWild(Rarity.UNCOMMON, 1)
+            pickWild(Rarity.COMMON, 1)
             pickWild(Rarity.UNCOMMON, 1)
           } else if (this.stageLevel <= 15) {
+            pickWild(Rarity.UNCOMMON, 1)
             pickWild(Rarity.COMMON, 2)
-            pickWild(Rarity.UNCOMMON, 2)
             pickWild(Rarity.RARE, 1)
           } else if (this.stageLevel <= 20) {
             pickWild(Rarity.UNCOMMON, 2)
-            pickWild(Rarity.RARE, 2)
+            pickWild(Rarity.RARE, 1)
             pickWild(Rarity.EPIC, 1)
           } else if (this.stageLevel <= 25) {
+            pickWild(Rarity.UNCOMMON, 2)
             pickWild(Rarity.RARE, 2)
             pickWild(Rarity.EPIC, 1)
-            pickWild(Rarity.UNIQUE, 3)
           } else if (this.stageLevel <= 30) {
             pickWild(Rarity.RARE, 2)
+            pickWild(Rarity.EPIC, 1)
             pickWild(Rarity.EPIC, 2)
-            pickWild(Rarity.UNIQUE, 3)
           } else if (this.stageLevel <= 35) {
             pickWild(Rarity.RARE, 2)
             pickWild(Rarity.EPIC, 2)
-            pickWild(Rarity.ULTRA, 2)
+            pickWild(Rarity.UNIQUE, 3)
           } else {
             pickWild(Rarity.EPIC, 2)
-            pickWild(Rarity.EPIC, 2)
-            pickWild(Rarity.ULTRA, 3)
+            pickWild(Rarity.UNIQUE, 3)
+            pickWild(Rarity.ULTRA, 2)
           }
 
           spawns.forEach((spawn) => {
@@ -1249,32 +1253,22 @@ export default class Simulation extends Schema implements ISimulation {
           break
 
         case Effect.FLUID: {
-          pokemon.addAttackSpeed(4 * activeSynergies, pokemon, 0, false)
-          pokemon.addShield(7 * activeSynergies, pokemon, 0, false)
+          pokemon.addAttackSpeed(2 * activeSynergies, pokemon, 0, false)
+          pokemon.addMaxHP(5 * activeSynergies)
           break
         }
 
         case Effect.SHAPELESS: {
           pokemon.effects.add(Effect.SHAPELESS)
           pokemon.addAttackSpeed(4 * activeSynergies, pokemon, 0, false)
-          pokemon.addShield(7 * activeSynergies, pokemon, 0, false)
-          pokemon.addAttack(1 * activeSynergies, pokemon, 0, false)
-          pokemon.addAbilityPower(5 * activeSynergies, pokemon, 0, false)
+          pokemon.addMaxHP(10 * activeSynergies)
           break
         }
 
         case Effect.ETHEREAL: {
           pokemon.effects.add(Effect.ETHEREAL)
-          pokemon.addAttackSpeed(4 * activeSynergies, pokemon, 0, false)
-          pokemon.addShield(7 * activeSynergies, pokemon, 0, false)
-          pokemon.addAttack(1 * activeSynergies, pokemon, 0, false)
-          pokemon.addAbilityPower(5 * activeSynergies, pokemon, 0, false)
-          if (types.has(Synergy.AMORPHOUS)) {
-            pokemon.addAttackSpeed(4 * activeSynergies, pokemon, 0, false)
-            pokemon.addShield(7 * activeSynergies, pokemon, 0, false)
-            pokemon.addAttack(1 * activeSynergies, pokemon, 0, false)
-            pokemon.addAbilityPower(5 * activeSynergies, pokemon, 0, false)
-          }
+          pokemon.addAttackSpeed(6 * activeSynergies, pokemon, 0, false)
+          pokemon.addMaxHP(15 * activeSynergies)
           break
         }
 

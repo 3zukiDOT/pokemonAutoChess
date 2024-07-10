@@ -529,6 +529,16 @@ export default class PokemonSprite extends DraggableObject {
     )
   }
 
+  spawnAnimation() {
+    this.displayAnimation("SPAWN")
+    const g = <GameScene>this.scene
+    g.animationManager?.animatePokemon(
+      this,
+      PokemonActionState.EMOTE,
+      this.flip
+    )
+  }
+
   hatchAnimation() {
     this.displayAnimation("HATCH")
     const g = <GameScene>this.scene
@@ -972,6 +982,7 @@ export default class PokemonSprite extends DraggableObject {
         .setScale(1.5)
       this.electricField.anims.play("ELECTRIC_FIELD")
       this.add(this.electricField)
+      this.bringToTop(this.sprite)
     }
   }
 
@@ -991,6 +1002,7 @@ export default class PokemonSprite extends DraggableObject {
       this.scene.add.existing(this.grassField)
       this.grassField.anims.play("GRASSY_FIELD")
       this.add(this.grassField)
+      this.bringToTop(this.sprite)
     }
   }
 
@@ -1009,6 +1021,7 @@ export default class PokemonSprite extends DraggableObject {
         .setScale(1)
       this.fairyField.anims.play("FAIRY_FIELD")
       this.add(this.fairyField)
+      this.bringToTop(this.sprite)
     }
   }
 
@@ -1027,6 +1040,7 @@ export default class PokemonSprite extends DraggableObject {
         .setScale(1)
       this.psychicField.anims.play("PSYCHIC_FIELD")
       this.add(this.psychicField)
+      this.bringToTop(this.sprite)
     }
   }
 
