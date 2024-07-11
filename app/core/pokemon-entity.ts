@@ -100,6 +100,8 @@ export class PokemonEntity extends Schema implements IPokemonEntity {
   physicalDamage: number
   specialDamage: number
   trueDamage: number
+  hpDamageTaken: number
+  shieldDamageTaken: number
   shieldDone: number
   flyingProtection = 0
   growGroundTimer = 3000
@@ -162,6 +164,8 @@ export class PokemonEntity extends Schema implements IPokemonEntity {
     this.physicalDamage = 0
     this.specialDamage = 0
     this.trueDamage = 0
+    this.hpDamageTaken = 0
+    this.shieldDamageTaken = 0
     this.healDone = 0
     this.shieldDone = 0
 
@@ -773,6 +777,10 @@ export class PokemonEntity extends Schema implements IPokemonEntity {
       for (const item of target.items.values()) {
         Berries.includes(item) && this.eatBerry(item, target)
       }
+    }
+
+    if (target.passive === Passive.PSYDUCK && chance(0.1)) {
+      target.status.triggerConfusion(3000, target)
     }
 
     if (this.name === Pkm.MINIOR) {
