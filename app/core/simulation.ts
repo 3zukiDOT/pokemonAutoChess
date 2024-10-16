@@ -140,6 +140,8 @@ export default class Simulation extends Schema implements ISimulation {
       if (player) {
         const entityTeam =
           player.team === Team.BLUE_TEAM ? this.blueTeam : this.redTeam
+        const opponentTeam =
+          player.team === Team.BLUE_TEAM ? this.redTeam : this.blueTeam
         player.board.forEach((pokemon) => {
           const entity = values(entityTeam).find(
             (p) => p.refToBoardPokemon === pokemon
@@ -149,6 +151,7 @@ export default class Simulation extends Schema implements ISimulation {
               simulation: this,
               player,
               team: entityTeam,
+              opponentTeam,
               entity
             })
           }
@@ -997,20 +1000,11 @@ export default class Simulation extends Schema implements ISimulation {
           break
 
         case Effect.PURSUIT:
-          if (types.has(Synergy.MONSTER)) {
-            pokemon.effects.add(Effect.PURSUIT)
-          }
-          break
-
         case Effect.BRUTAL_SWING:
-          if (types.has(Synergy.MONSTER)) {
-            pokemon.effects.add(Effect.BRUTAL_SWING)
-          }
-          break
-
         case Effect.POWER_TRIP:
+        case Effect.MERCILESS:
           if (types.has(Synergy.MONSTER)) {
-            pokemon.effects.add(Effect.POWER_TRIP)
+            pokemon.effects.add(effect)
           }
           break
 
@@ -1702,11 +1696,7 @@ export default class Simulation extends Schema implements ISimulation {
         enemyWithHighestAP = enemyWithHighestAP as PokemonEntity // see https://github.com/microsoft/TypeScript/issues/11498
         enemyWithHighestAP.addAbilityPower(-50, enemyWithHighestAP, 0, false)
         enemyWithHighestAP.status.curseTorment = true
-        enemyWithHighestAP.status.triggerSilence(
-          30000,
-          enemyWithHighestAP,
-          undefined
-        )
+        enemyWithHighestAP.status.triggerFatigue(30000, enemyWithHighestAP)
       }
     }
 

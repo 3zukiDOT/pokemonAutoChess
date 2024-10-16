@@ -62,6 +62,10 @@ export default abstract class PokemonState {
         damage = Math.ceil(damage * (1 + pokemon.ap / 100))
       }
 
+      if (pokemon.status.stoneEdge) {
+        damage += Math.round(pokemon.def * (1 + pokemon.ap / 100))
+      }
+
       let trueDamagePart = 0
       if (pokemon.effects.has(Effect.STEEL_SURGE)) {
         trueDamagePart += 0.33
@@ -790,7 +794,7 @@ export default abstract class PokemonState {
       pokemon.effects.has(Effect.ETERNAL_LIGHT) ||
       pokemon.effects.has(Effect.MAX_ILLUMINATION)
     ) {
-      pokemon.addPP(10, pokemon, 0, false)
+      pokemon.addPP(8, pokemon, 0, false)
     }
 
     if (pokemon.items.has(Item.METRONOME)) {
@@ -875,11 +879,7 @@ export default abstract class PokemonState {
         y++
       ) {
         const value = board.getValue(x, y)
-        if (
-          value !== undefined &&
-          value.team !== pokemon.team &&
-          value.isTargettable
-        ) {
+        if (value && value.isTargettableBy(pokemon)) {
           const candidateDistance = distanceC(
             pokemon.positionX,
             pokemon.positionY,
@@ -913,11 +913,7 @@ export default abstract class PokemonState {
     }>()
 
     board.forEach((x: number, y: number, value: PokemonEntity | undefined) => {
-      if (
-        value !== undefined &&
-        value.team !== pokemon.team &&
-        value.isTargettable
-      ) {
+      if (value && value.isTargettableBy(pokemon)) {
         const candidateDistance = distanceM(
           pokemon.positionX,
           pokemon.positionY,
@@ -948,7 +944,7 @@ export default abstract class PokemonState {
     let maxDistance = 0
 
     board.forEach((x: number, y: number, enemy: PokemonEntity | undefined) => {
-      if (enemy && enemy.team !== pokemon.team && enemy.isTargettable) {
+      if (enemy && enemy.isTargettableBy(pokemon)) {
         const distance = distanceM(pokemon.positionX, pokemon.positionY, x, y)
         if (distance > maxDistance) {
           farthestTarget = enemy
@@ -1034,9 +1030,9 @@ export default abstract class PokemonState {
 
     board.forEach((x: number, y: number, value: PokemonEntity | undefined) => {
       if (
-        value !== undefined &&
+        value &&
         value.id !== pokemon.id &&
-        value.isTargettable
+        value.isTargettableBy(pokemon, true, true)
       ) {
         const candidateDistance = distanceM(
           pokemon.positionX,

@@ -109,6 +109,7 @@ class GameContainer {
       "curseFate",
       "electricField",
       "fairyField",
+      "fatigue",
       "flinch",
       "freeze",
       "grassField",
@@ -174,7 +175,7 @@ class GameContainer {
             pokemon,
             field,
             value,
-            previousValue
+            previousValue || value
           )
         })
       })
