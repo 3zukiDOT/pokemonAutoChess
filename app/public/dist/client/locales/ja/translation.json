@@ -1056,7 +1056,7 @@
     "EARTHQUAKE": "攻撃側と同じ列/列の敵ユニット全員に[120,SP]SPECIALダメージを与える",
     "SONG_OF_DESIRE": "後衛の敵2人を3秒間CHARM状態にし、ATKを[3,SP]減少させる",
     "CONFUSING_MIND": "CONFUSION [3,SP] 秒間、後衛の対戦相手 2 人に",
-    "KNOWLEDGE_THIEF": "ターゲットの能力を使用します。プレイヤーは 1 XP を獲得します。",
+    "KNOWLEDGE_THIEF": "ターゲットのわざを使用します。プレイヤーは 1 XP を獲得します。",
     "KING_SHIELD": "ユーザーを1.5秒間 PROTECT し、[10,20,30,SP] SHIELD を獲得し、最も遠い敵ポケモンと位置を交換します",
     "EXPLOSION": "隣接する敵全員に[50,100,200,SP]SPECIALを与える。使用者にも損害を与えます。",
     "NIGHTMARE": "[1.5,3,6,ND=1]秒間、敵チーム全体にSILENCEを与える。SLEEP、FLINCH、または既にSILENCE状態の相手には、[40,80,150,SP]の特殊ダメージを与える。",
@@ -1228,7 +1228,7 @@
     "HIDDEN_POWER_K": "レッドオーブと最大MANAを持ったヒットモンリーをスポーンする",
     "HIDDEN_POWER_L": "敵チームは5秒間 LOCKED になります",
     "HIDDEN_POWER_M": "チーム全体が最大の PP を獲得します",
-    "HIDDEN_POWER_N": "チーム全体が 50 SHIELD を獲得し、$t(ability.EXPLOSION) をキャストします。",
+    "HIDDEN_POWER_N": "チーム全体がシールドを50獲得し、$t(ability.EXPLOSION) をキャストします。",
     "HIDDEN_POWER_O": "オランベリーをチーム全員に与えましょう。アイテムは戦闘終了時に削除されます。",
     "HIDDEN_POWER_P": "ランダムな BUG STAR ポケモンを 5 匹出現させる",
     "HIDDEN_POWER_Q": "引き分けですぐに試合を終了する",
@@ -1573,7 +1573,9 @@
     "POKE_DOLL": "入ってくるすべてのPHYSICALとSPECIALを30%削減",
     "RED_ORB": "+10攻撃力。攻撃ダメージの25%がTRUEとして与えられる",
     "MAX_REVIVE": "RESURECTIONを与え、ホルダーの最初のKOを防ぎ、最大HPまで回復します",
-    "ROCKY_HELMET": "防御力+12クリティカルヒットによるクリティカルボーナスダメージを無効化します。"
+    "ROCKY_HELMET": "防御力+12クリティカルヒットによるクリティカルボーナスダメージを無効化します。",
+    "JABOCA_BERRY": "HPが50%以下になるとHPを20回復し、$t(ability.SPIKE_ARMOR)を10秒間発動する。",
+    "ROWAP_BERRY": "HPが50%以下になるとHPを20回復し、$t(ability.MAGIC_BOUNCE)を10秒間発動する。"
   },
   "passive_description": {
     "NONE": "パッシブなし",
@@ -1615,7 +1617,8 @@
     "GLIGAR": "グライガーはRAZOR_FANGを探しています. ポケモンが「どく」の場合、ダメージを受ける代わりにHPが回復する",
     "POISON_HEAL": "ポケモンが「どく」の場合、ダメージを受ける代わりにHPが回復する",
     "GRIM_NEIGH": "ポケモンが敵を倒すと、恐ろしい鳴き声を発し、APが30増加します",
-    "SHAYMIN": "シェイミはGRACIDEA_FLOWERを探しています"
+    "SHAYMIN": "シェイミはGRACIDEA_FLOWERを探しています",
+    "CELEBI": "プレイヤーは$t(pkm.CELEBI)が$t(ability.TIME_TRAVEL)をキャストする度にHPを1回復する。"
   },
   "stat": {
     "ATK": "攻撃",
@@ -1643,7 +1646,7 @@
     "HP": "ヘルスポイント",
     "RANGE": "1射程のポケモンは近接攻撃",
     "PP": "マナ",
-    "MAX_PP": "アビリティを唱えるために必要なマナの量。ポケモンは時間とともにマナを受け取ります (1 秒あたり 10)、攻撃時 (攻撃ごとに 5)、ダメージを受けたとき (受けるダメージの 10%)",
+    "MAX_PP": "わざを発動するのに必要なPPの量。 時間経過(毎秒10)、攻撃時(毎攻撃5)、ダメージ時(受けるダメージの10%)にPPを受け取る。",
     "AP": "SPECIALやアビリティの効果をさまざまな方法で増加させます。",
     "SHIELD": "一時的な健康ポイントは回復できません。"
   },
