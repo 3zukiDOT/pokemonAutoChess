@@ -12,7 +12,7 @@
     "SPECIAL": "スペシャル"
   },
   "pool": {
-    "regular": "標準",
+    "regular": "レギュラー",
     "additional": "追加",
     "regional": "リージョン"
   },
@@ -390,7 +390,9 @@
     "IVY_CUDGEL": "ツタこんぼう",
     "FORCE_PALM": "はっけい",
     "THUNDER_CAGE": "サンダープリズン",
-    "HEADBUTT": "ずつき"
+    "HEADBUTT": "ずつき",
+    "STEEL_WING": "はがねのつばさ",
+    "YAWN": "あくび"
   },
   "pkm": {
     "DEFAULT": "けつばん",
